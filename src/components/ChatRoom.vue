@@ -45,7 +45,7 @@ export default {
     return {
       messages: [],
       users: [],
-      socket: io('localhost:8080', { 'query': { username: `${this.username}` } }),
+      socket: io('/', { 'query': { username: `${this.username}` } }),
       alertcontent: '',
       audiosource: ''
     }
