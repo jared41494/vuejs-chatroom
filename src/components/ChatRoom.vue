@@ -53,7 +53,11 @@ export default {
   mounted () {
     this.socket.on('userlistupdate', users => { this.users = users })
 
-    this.socket.on('messagereceived', messages => { this.messages = messages })
+    this.socket.on('messagereceived', messages => {
+      this.messages = messages
+      this.alertcontent = ''
+      this.audiosource = ''
+    })
 
     this.socket.on('newuserconnected', notification => {
       this.alertcontent = notification

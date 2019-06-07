@@ -45,6 +45,11 @@ export default {
         var audio = new Audio(this.audiosource)
         audio.play()
       }
+      else {
+        this.content = ''
+        this.audiosource = ''
+        this.dismissCountDown = 0
+      }
     }
   }
 

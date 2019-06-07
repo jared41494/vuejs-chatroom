@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 })
 
 const server = app.listen(process.env.PORT || 5000, () => {
-  // console.log('Server is listening on port 8080')
+
 })
 
 function getConnectedUsers (io, connectedUsers) {
