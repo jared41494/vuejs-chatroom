@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <ChatRoom v-if="username.length" :username="username" />
+    <NewUser v-else v-on:loginUser="loginUser" />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import ChatRoom from './components/ChatRoom.vue'
+import NewUser from './components/NewUser.vue'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      username: ''
+    }
+  },
   components: {
-    HelloWorld
+    Header,
+    ChatRoom,
+    NewUser,
+    Footer
+  },
+  methods: {
+    loginUser (newusername) {
+      this.username = newusername
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style>
+
 </style>
