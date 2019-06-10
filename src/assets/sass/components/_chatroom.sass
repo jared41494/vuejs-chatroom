@@ -1,9 +1,20 @@
 .chat-room-container
   margin-bottom: 5rem;
+  h2
+    font-size: $big-font;
+  h3 
+    font-size: $sub-font;
+
+@media all and (max-width: 1280px)
+  .chat-room-container
+    h2
+      font-size: $big-font - 0.5rem;
+    h3 
+      font-size: $sub-font - 0.5rem;
 
 
 @media all and (max-width: 767px)
   .chat-room-container 
     .col
       max-width: 100%;
-      flex: 0 1 100%
+      flex: 0 1 100%;

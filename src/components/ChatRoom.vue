@@ -59,19 +59,13 @@ export default {
       this.audiosource = ''
     })
 
-    this.socket.on('newuserconnected', notification => {
-      this.alertcontent = notification
-      this.audiosource = 'https://actions.google.com/sounds/v1/cartoon/cartoon_boing.ogg'
-    })
-
-    this.socket.on('userdisconnected', notification => {
-      this.alertcontent = notification
-      this.audiosource = 'https://actions.google.com/sounds/v1/cartoon/cartoon_cowbell.ogg'
-    })
+    this.socket.on('newuserconnected', this.setNotification)
+    this.socket.on('userdisconnected', this.setNotification)
   },
   methods: {
     setNotification (notification) {
-      this.alertcontent = notification
+      this.alertcontent = notification.content
+      this.audiosource = notification.audio
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="users-container">
+  <div class="item-container users-container">
     <h3>Users <span class="count">({{ count }})</span></h3>
     <div class="panel users-panel">
       <div class="user" v-for="(user, index) in users" :key="index">

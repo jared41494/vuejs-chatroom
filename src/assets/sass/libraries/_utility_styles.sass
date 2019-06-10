@@ -1,9 +1,27 @@
 // common classes and mixins
+p 
+  font-size: $normal-font !important;
+
 .panel 
   height: 500px;
   border: thin solid black;
   padding: 1rem;
   overflow-y: scroll;
+
+h1, h2, h3, h4
+  color: $brand-primary-color;
+
+.item-container
+  position: relative;
+  .count 
+    position: absolute;
+    top: 1rem;
+    right: 5px;
+    font-size: $small-font;
+    color: $brand-secondary-color;
+
+.btn
+  background-color: $brand-primary-color;
 
 
 @media all and (max-width: 767px)

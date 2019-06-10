@@ -44,8 +44,7 @@ export default {
         this.dismissCountDown = this.dismissSec
         var audio = new Audio(this.audiosource)
         audio.play()
-      }
-      else {
+      } else {
         this.content = ''
         this.audiosource = ''
         this.dismissCountDown = 0
