@@ -9,9 +9,6 @@
     >
       {{ content }}
     </b-alert>
-    <!--<audio>
-      <source v-bind:src="audiosource" type="audio/mpeg" />
-    </audio>-->
   </div>
 </template>
 
@@ -24,7 +21,7 @@ export default {
   },
   data () {
     return {
-      dismissSec: 15,
+      dismissSec: 8,
       dismissCountDown: 0
     }
   },

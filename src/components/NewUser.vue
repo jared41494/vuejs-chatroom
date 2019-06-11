@@ -8,7 +8,7 @@
             id="input-group-1"
             label="Username:"
             label-for="input-1"
-            label-sr-only="true"
+            :label-sr-only="true"
           >
             <b-form-input
               id="input-1"
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'NewUser',
   data () {
@@ -36,9 +38,13 @@ export default {
   },
   methods: {
     loginUser () {
-      if (this.newusername.length > 8) {
-        this.$emit('loginUser', this.newusername)
-      }
+      axios.post('/Checkuser', { username: this.newusername }).then((res) => {
+        if (!res.data.isValid) {
+          alert('Username blank or already taken! Please try again!')
+        } else {
+          this.$emit('loginUser', this.newusername)
+        }
+      })
     }
   }
 }

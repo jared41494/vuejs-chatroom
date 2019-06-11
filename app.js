@@ -1,5 +1,6 @@
 const userfunc = require('./lib/user-functions')
 const express = require('express')
+const bodyParser = require('body-parser')
 const path = require('path')
 const serveStatic = require('serve-static')
 const app = express()
@@ -10,9 +11,26 @@ let messages = []
 const server = app.listen(process.env.PORT || 5000)
 const io = require('socket.io')(server)
 app.use(serveStatic(path.join(__dirname, '/dist')))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
+
+app.post('/CheckUser', (req, res) => {
+  let username = req.body.username
+  let isValid = true
+
+  if (!username.length) {
+    isValid = false
+  }
+
+  if (userfunc.isUserExists(username, connectedUsers)) {
+    isValid = false
+  }
+
+  res.send({ isValid: isValid })
 })
 
 io.on('connection', (socket) => {

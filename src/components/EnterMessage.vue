@@ -6,7 +6,7 @@
         id="input-group-1"
         label="Message:"
         label-for="input-1"
-        label-sr-only="true"
+        :label-sr-only="true"
       >
         <b-form-input
           id="input-1"
