@@ -25,7 +25,9 @@ After installing Node.js locally and pulling the repo
 
 ## Deployment
 
-Application will be deployed soon.
+A live version of this application can be found at
+
+https://rumskii-vuejs-chatroom.herokuapp.com/
 
 ## Built With
 
